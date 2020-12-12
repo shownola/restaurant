@@ -16,6 +16,6 @@ User.create!(email: 'admin@email.com',
     name: 'Pizza',
     description: "Lorem ipsum Chicago Style bbq chicken free range dough",
     price: 11.99,
-    catering_item: true
+    catering: true
   )
 end
