@@ -11,11 +11,41 @@ User.create!(email: 'admin@email.com',
               password_confirmation: 'password',
               admin: true)
 
-25.times do |i|
-  Product.create!(
+Category.create!(heading: 'Pizza', body: 'It is so good, dough!', display: true)
+Category.create!(heading: 'Pasta', body: 'We cannoli do so much', display: true)
+Category.create!(heading: 'Desserts', body: 'Rock rails icecream', display: true)
+
+10.times do |i|
+  pizza = Product.new(
     name: 'Pizza',
     description: "Lorem ipsum Chicago Style bbq chicken free range dough",
     price: 11.99,
-    catering: true
+    catering: true,
+    category: Category.find(1)
   )
+  pasta = Product.new(
+    name: 'Pasta',
+    description: "Lorem ipsum Chicago Style bbq chicken free range dough",
+    price: 8.99,
+    catering: true,
+    category: Category.find(2)
+  )
+  dessert = Product.new(
+    name: 'Dessert',
+    description: "Lorem ipsum Chicago Style bbq chicken free range dough",
+    price: 6.99,
+    catering: true,
+    category: Category.find(3)
+  )
+  pizza.image.attach(io: open('https://picsum.photos/1920/1080'), filename: "#{i}_pizza_image.jpg")
+  pasta.image.attach(io: open('https://picsum.photos/1920/1080'), filename: "#{i}_pasta_image.jpg")
+  dessert.image.attach(io: open('https://picsum.photos/1920/1080'), filename: "#{i}_dessert_image.jpg")
+  if i == 5
+    pizza.featured = true
+    pasta.featured = true
+    dessert.featured = true
+  end
+  pizza.save
+  pasta.save
+  dessert.save
 end
