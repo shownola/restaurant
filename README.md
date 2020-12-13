@@ -1,6 +1,6 @@
 # README
 
-Restaurant app
+Restaurant app includes a search feature, shopping cart
 
 * Ruby version ruby '2.6.3'
 
