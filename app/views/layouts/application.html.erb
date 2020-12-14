@@ -17,7 +17,7 @@
     <p class="alert"><%= alert %></p> -->
 
     <%#= render 'layouts/nav' %>
-  <% cache do %>
+
     <div class="<%= @page %>-page">
       <div class="row page-container">
         <%= render 'layouts/links' %>
@@ -30,8 +30,11 @@
         <div class="col-2"></div>
       </div>
     </div>
-  <% end %>
+
 
 
   </body>
 </html>
+
+<!-- Active storage creates links that expire therefore until the bug is fixed in rails 6.1 you can use something like this: Which is in case you  need something indexed for a search engine optimization
+<%# @product.public_url %> -->
